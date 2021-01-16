@@ -1,8 +1,16 @@
 <script>
-	export let name;
 </script>
 
 <main>
-	<h1>Home {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<p id="name">Casey Haber!</p>
+	<p>Engineer, designer, and visualization specialist. Focused on creating unique experiences that communicate a human perspective.</p>
 </main>
+
+<style>
+
+	#name {
+		font-weight: 400;
+		font-size: 60px;
+	}
+
+</style>

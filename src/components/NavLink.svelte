@@ -2,6 +2,7 @@
   import { Link } from "svelte-routing";
 
   export let to = "";
+  export let name = "";
 
   function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
     const isActive = href === "/" ? isCurrent : isPartiallyCurrent || isCurrent;
@@ -15,5 +16,5 @@
 </script>
 
 <Link to="{to}" getProps="{getProps}">
-  <slot />
+  <p>{name}</p>
 </Link>

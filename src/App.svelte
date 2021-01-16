@@ -1,36 +1,39 @@
 <script>
-
-	import Page from './routes/Page.svelte';
+	import { Router, Route } from "svelte-routing";
+	import Nba from './routes/Nba.svelte';
 	import Home from './routes/Home.svelte';
 
-	import { Router, Route } from "svelte-routing";
+
   	import NavLink from "./components/NavLink.svelte";
   // Used for SSR. A falsy value is ignored by the Router.
   	export let url = "";
 </script>
 <!-- svelte-ignore empty-block -->
+<main>
+	<Router url="{url}">
+		<div>
+		  <NavLink name="Home" to="/"></NavLink>
+		  <NavLink name="NBA" to="nba"></NavLink>
+		</div>
+		<div>
+		  <Route path="/" component="{Home}"/>
+	
+		  <Route path="nba">
+			  <Nba/>
+		  </Route>
+		</div>
+	</Router>
+</main>
 
-<Router url="{url}">
-	<nav>
-	  <NavLink to="/">Home</NavLink>
-	  <NavLink to="page">Page</NavLink>
-	</nav>
-	<div>
-	  <Route path="/" component="{Home}"/>
-
-	  <Route path="page">
-		  <Page name="Blog post page 1"/>
-	  </Route>
-	</div>
-</Router>
   
 <style>
 	main {
 		text-align: center;
 		padding: 1em;
 		max-width: 240px;
-		margin: 0 auto;
+		margin: 0 auto;	
 	}
+
 
 	h1 {
 		color: #ff3e00;
